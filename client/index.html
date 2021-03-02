@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electronic Store</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1><i class="fas fa-plug"></i>Electronic Store</h1>
+ 
+    
+    <form class="form">
+      <div class="component">
+        <input type="text" autocomplete="off" readonly name="id" placeholder="ID" class="form-input" id="userid">
+  
+        <input type="text" autocomplete="off" name="product-name" placeholder="Product Name" class="form-input" id="productname">
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <input type="text" autocomplete="off" name="seller" placeholder="Seller" class="form-input" id="seller">
+        </div>
+        <div class="col">
+          <input type="text" autocomplete="off" name="price" placeholder="Price" class="form-input" id="price">
+        </div>
+      </div>
+
+      <!-- Create, update, reade and delete all button -->
+      <div class="btn">
+        <button name='create' id="btn-create" class='btn-style btn-success'>Create</button>
+        <button name='create' id="btn-reade" class='btn-style btn-primary'>Read</button>
+        <button name='create' id="btn-update" class='btn-style btn-light'>Update</button>
+        <button name='create' id="btn-delete" class='btn-style btn-danger'>Delete All</button>
+      </div>
+    </form>
+    
+
+    <!-- Table -->
+    <div class="table-data">
+      <table class="table">
+        <thead class="dark">
+          <tr>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>Seller</th>
+            <th>Price</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          <tr>
+            <td>1</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mobi</td>
+            <td><i class="fas fa-edit btnedit">edit</i></td>
+            <td><i class="fas fa-trash-alt btndelete">delete</i></td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mobi</td>
+            <td><i class="fas fa-edit btnedit">edit</i></td>
+            <td><i class="fas fa-trash-alt btndelete">delete</i></td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mobi</td>
+            <td><i class="fas fa-edit btnedit">edit</i></td>
+            <td><i class="fas fa-trash-alt btndelete">delete</i></td>
+          </tr>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <script src="db/main.js" type="module"></script>
+</body>
+</html>
