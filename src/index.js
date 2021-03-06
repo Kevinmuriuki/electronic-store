@@ -55,17 +55,31 @@ function table(e) {
         createEle("td", tr, td => {
           createEle("i", td, i => {
             i.className += "fas fa-edit edit"
+            i.setAttribute('data-id',data.id)
             i.textContent = "@"
+            i.onclick = editbtn;
           });
         });
         createEle("td", tr, td => {
           createEle("i", td, i => {
-            i.className += "fas fa-delete delete"
-            i.textContent = "@"
+            i.className += "fas fa-delete delete";
+            i.textContent = "@";
+            // i.onclick = deletebtn;
           });
         })
       })
     }
+  })
+}
+
+function editbtn(e) {
+  let id = parseInt(e.target.dataset.id);
+
+  db.products.get(id, (data) => {
+    userid.value = data.id || 0;
+    nameinput.value = data.name || "";
+    sellerinput.value = data.seller || "";
+    priceinput.value = data.price || "";
   })
 }
 
