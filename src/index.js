@@ -34,7 +34,18 @@ btncreate.addEventListener("click", (e) => {
 
 // update event on btn update button
 btnupdate.addEventListener("click", (e) => {
-  
+  e.preventDefault();
+  const id = parseInt(userid.value || 0);
+  if(id) {
+    db.products.update(id, {
+      name:nameinput.value,
+      seller:sellerinput.value,
+      price:priceinput.value,
+    }).then((updated) => {
+      let get = updated ? `data Updated` : `Couldn't Update Data`;
+      console.log(get)
+    })
+  }
 }) 
 
 // create event on btn read button
@@ -68,8 +79,9 @@ function table(e) {
         createEle("td", tr, td => {
           createEle("i", td, i => {
             i.className += "fas fa-delete delete";
+            i.setAttribute('data-id',data.id)
             i.textContent = "@";
-            // i.onclick = deletebtn;
+            i.onclick = deletebtn;
           });
         })
       })
@@ -87,4 +99,6 @@ function editbtn(e) {
     priceinput.value = data.price || "";
   })
 }
+
+
 
