@@ -1,4 +1,4 @@
-import productdb, { bulkcreate } from "./Module.js";
+import productdb, { bulkcreate, getData, createEle } from "./Module.js";
 import './css/styles.css';
 
 let db = productdb("Productdb", {
@@ -10,7 +10,6 @@ const userid = document.querySelector("input[name*='id']");
 const nameinput = document.querySelector("input[name*='product-name']");
 const sellerinput = document.querySelector("input[name*='seller']")
 const priceinput = document.querySelector("input[name*='price']");
-
 
 // buttons
 const btncreate = document.getElementById('btn-create');
@@ -28,20 +27,45 @@ btncreate.addEventListener("click", (e) => {
   });
 
   nameinput.value = sellerinput.value = priceinput.value = "";
-  getData();
-});
+  getData(db.products, (data) => {
+    userid.value = data.id+1 || 1;
+  });
+}); 
 
-const getData = () => {
-  let index = 0;
-  let obj = {};
+// create event on btn read button
+btnread.addEventListener("click", table);
 
-  db.products.count((count) => {
-    if(count) {
-      db.products.each(table => {
-        console.log(table);
+function table(e) {
+  e.preventDefault();
+  const tbody = document.querySelector("tbody");
+
+  while(tbody.hasChildNodes()) {
+    tbody.removeChild(tbody.firstChild);
+  }
+
+  getData(db.products, (data) => {
+    if(data) {
+      createEle("tr", tbody, tr => {
+        console.log(tr)
+        for (const value in data) {
+          createEle("td", tr, td => {
+              td.textContent = data.price === data[value]?`$${data[value]}`:data[value]; 
+          })
+        }
+        createEle("td", tr, td => {
+          createEle("i", td, i => {
+            i.className += "fas fa-edit edit"
+            i.textContent = "@"
+          });
+        });
+        createEle("td", tr, td => {
+          createEle("i", td, i => {
+            i.className += "fas fa-delete delete"
+            i.textContent = "@"
+          });
+        })
       })
     }
   })
 }
-
 

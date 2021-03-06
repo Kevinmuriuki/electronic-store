@@ -91,23 +91,23 @@ h1 {
 }
 
 .dark {
-  background: rgba(21, 20, 27, 0.863);
+  background: rgba(82, 81, 81, 0.863);
   color: #fff;
-  margin-bottom: 1em;
+  margin-bottom: -3em;
 }
 
 tr {
   display: grid;
   grid-template-columns: repeat(6, 8em);
+  border-bottom: 1px solid #fff;
 }
 
 th {
   padding: .8em;
 }
 
-#tbody {
-  color: #fff;
-  background: rgb(80, 79, 79);
+tbody tr{
+  background: rgb(243, 243, 243);
 }
 
 td {
@@ -115,14 +115,15 @@ td {
   padding: .4em;
 }
 
-.btnedit {
+.edit {
   color: lightgreen;
   cursor: pointer;
 }
 
-.btndelete {
+.delete {
   color: lightsalmon;
   cursor: pointer;
 }
+
 
 

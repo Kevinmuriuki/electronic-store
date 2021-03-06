@@ -12,30 +12,28 @@
       <div class="form-container">
         <form action="" method="post" class="form">
           <div class="component">
-            <input type="text" autocomplete="off" name="id" placeholder="ID" class="form-input inlineFormInputGroup" id="id">
+            <input type="text" autocomplete="off" name="id" placeholder="ID" class="form-input" id="inlineFormInputGroup">
           </div>
           <div class="component">
-            <input type="text" autocomplete="off" name="product-name" placeholder="Product Name" class="form-input inlineFormInputGroup" id="productname">
+            <input type="text" autocomplete="off" name="product-name" placeholder="Product Name" class="form-input" id="inlineFormInputGroup">
           </div>
   
           <div class="row">
             <div class="col">
-              <input type="text" autocomplete="off" name="seller" placeholder="Seller" class="form-input inlineFormInputGroup" id="seller">
+              <input type="text" autocomplete="off" name="seller" placeholder="Seller" class="form-input" id="inlineFormInputGroup">
             </div>
             <div class="col">
-              <input type="number" autocomplete="off" name="price" placeholder="Price" class="form-input inlineFormInputGro" id="price">
+              <input type="number" autocomplete="off" name="price" placeholder="Price" class="form-input" id="inlineFormInputGroup">
             </div>
           </div>
   
-          
+          <div class="btn">
+            <button name='create' class='btn-style btn-success' id="btn-create">Create</button>
+            <button name='reade' class='btn-style btn-primary' id="btn-read">Reade</button>
+            <button name='update' class='btn-style btn-light' id="btn-update">Update</button>
+            <button name='delete' class='btn-style btn-danger' id="btn-delete">Delete All</button>
+          </div>
         </form>
-
-        <div class="btn">
-          <button name='create' class='btn-style btn-success' id="btn-create">Create</button>
-          <button name='reade' class='btn-style btn-primary' id="btn-read">Reade</button>
-          <button name='update' class='btn-style btn-light' id="btn-update">Update</button>
-          <button name='delete' class='btn-style btn-danger' id="btn-delete">Delete All</button>
-        </div>
       </div>
   
       <!-- Table -->
@@ -44,14 +42,15 @@
           <thead class="dark">
             <tr>
               <th>ID</th>
-              <th>Book Name</th>
-              <th>Publisher</th>
-              <th>Book Price</th>
+              <th>Product Name</th>
+              <th>Seller</th>
+              <th>Price</th>
               <th>Edit</th>
               <th>Delete</th>
             </tr>
           </thead>
-          <tbody id="tbody">
+          <tbody>
+            <!--
             <tr>
               <td >1</td>
               <td >Mark</td>
@@ -59,20 +58,7 @@
               <td >4.44</td>
               <td><i class="edit">@</i></td>
             </tr>
-            <tr>
-              <td >1</td>
-              <td >Mark</td>
-              <td >Otto</td>
-              <td >4.44</td>
-              <td><i class="edit">@</i></td>
-            </tr>
-            <tr>
-              <td >1</td>
-              <td >Mark</td>
-              <td >Otto</td>
-              <td >4.44</td>
-              <td><i class="edit">@</i></td>
-            </tr>
+            -->
           </tbody>
         </table>
       </div>
