@@ -12,6 +12,7 @@ function productdb(dbname, table) {
 // insert function
 function bulkcreate(dbtable, data) {
   let flag = empty(data);
+  
   for(const value in data) {
     if (flag) {
       dbtable.bulkAdd([data]).then(() => {
@@ -28,16 +29,17 @@ function bulkcreate(dbtable, data) {
 }
 
 // check textbox validation
-const empty = object => {
+const empty = (object) => {
   let flag = false;
-
+  
   for(const value in object) {
-    if(object[value] != "" && object.hasOwnProperty(value)){
+    if(object[value] !== "" && object.hasOwnProperty(value)){
       flag = true;
     } else {
       flag = false;
     }
   }
+  return flag;
 }
 
 // get data from database # fn is a high order function

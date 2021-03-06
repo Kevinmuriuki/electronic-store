@@ -60,10 +60,11 @@ btnupdate.addEventListener("click", (e) => {
 }) 
 
 // create event on btn read button
-btnread.addEventListener("click", table);
-
-function table(e) {
+btnread.addEventListener("click", (e) => {
   e.preventDefault();
+  table();
+})
+function table() {
   const tbody = document.querySelector("tbody");
 
   while(tbody.hasChildNodes()) {
@@ -111,9 +112,8 @@ function editbtn(e) {
   })
 }
 
-function deletebtn() {
+function deletebtn(e) {
   let id = parseInt(e.target.dataset.id);
-
   db.products.delete(id);
   table();
 }
