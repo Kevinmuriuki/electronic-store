@@ -32,6 +32,11 @@ btncreate.addEventListener("click", (e) => {
   });
 }); 
 
+// update event on btn update button
+btnupdate.addEventListener("click", (e) => {
+  
+}) 
+
 // create event on btn read button
 btnread.addEventListener("click", table);
 
