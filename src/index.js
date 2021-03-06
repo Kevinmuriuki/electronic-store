@@ -32,6 +32,17 @@ btncreate.addEventListener("click", (e) => {
   });
 }); 
 
+// delete records
+btndelete.addEventListener("click", (e) => {
+  e.preventDefault();
+  db.delete();
+  db = productdb("Productdb", {
+    products: `++id, name, seller, price`
+  });
+  db.open();
+  table();
+})
+
 // update event on btn update button
 btnupdate.addEventListener("click", (e) => {
   e.preventDefault();
