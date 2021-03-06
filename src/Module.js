@@ -2,7 +2,6 @@ import Dexie from 'dexie';
 
 // declare indexDB database
 function productdb(dbname, table) {
-
   const db = new Dexie(dbname);
   db.version(1).stores(table);
   db.open();
@@ -12,27 +11,19 @@ function productdb(dbname, table) {
 
 // insert function
 function bulkcreate(dbtable, data) {
-  let flag = empty(data);
-  if (flag) {
-    dbtable.bulkAdd([data]);
-    console.log("Data inserted successfully...!");
-  } else {
-    console.log("Please Provide Data...!");
-  }
-
-  return flag;
-}
-
-// check textbox validation
-const empty = (object) => {
-  let flag = false;
-
-  for(const value in object) {
-    if(object[value] != "" && object.hasOwnProperty(value)) {
-      flag = true;
+  let flag = [];
+  for(const value in data) {
+    if (data[value] != "" && data.hasOwnProperty(value)) {
+      flag = dbtable.bulkAdd([data]).then(() => {
+                console.log("Inserted Data Successfully");
+              }).catch(Dexie.BulkError, (e) => {
+                console.error("Data wasn't added successfully");
+              });
     } else {
-      flag = false;
+      console.log("Please Provide Data...!");
     }
+  
+    return flag;
   }
 }
 

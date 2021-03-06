@@ -6,10 +6,10 @@ let db = productdb("Productdb", {
 });
 
 // input tags
-const userid = document.getElementById('id');
-const productname = document.getElementById('productname');
-const seller = document.getElementById('seller');
-const price = document.getElementById('price');
+const userid = document.querySelector("input[name*='id']");
+const nameinput = document.querySelector("input[name*='product-name']");
+const sellerinput = document.querySelector("input[name*='seller']")
+const priceinput = document.querySelector("input[name*='price']");
 
 
 // buttons
@@ -20,11 +20,28 @@ const btndelete = document.getElementById('btn-delete');
 
 // insert values using button
 btncreate.addEventListener("click", (e) => {
+  e.preventDefault();
   const flag = bulkcreate(db.products, {
-    name: productname.value,
-    seller: seller.value,
-    price: price.value
+    name: nameinput.value,
+    seller: sellerinput.value,
+    price: priceinput.value
   });
 
-  productname.value = seller.value = price.value = "";
+  nameinput.value = sellerinput.value = priceinput.value = "";
+  getData();
 });
+
+const getData = () => {
+  let index = 0;
+  let obj = {};
+
+  db.products.count((count) => {
+    if(count) {
+      db.products.each(table => {
+        console.log(table);
+      })
+    }
+  })
+}
+
+
