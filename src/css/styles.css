@@ -93,7 +93,7 @@ h1 {
 .dark {
   background: rgba(21, 20, 27, 0.863);
   color: #fff;
-  margin: 0;
+  margin-bottom: 1em;
 }
 
 tr {

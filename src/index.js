@@ -6,7 +6,7 @@ let db = productdb("Productdb", {
 });
 
 // input tags
-const userid = document.getElementById('userid');
+const userid = document.getElementById('id');
 const productname = document.getElementById('productname');
 const seller = document.getElementById('seller');
 const price = document.getElementById('price');
@@ -26,6 +26,5 @@ btncreate.addEventListener("click", (e) => {
     price: price.value
   });
 
-  // productname.value = seller.value = price.value = "";
-  console.log(flag)
+  productname.value = seller.value = price.value = "";
 });
