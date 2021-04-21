@@ -54,7 +54,6 @@ btnupdate.addEventListener("click", (e) => {
       price:priceinput.value,
     }).then((updated) => {
       let get = updated ? `data Updated` : `Couldn't Update Data`;
-      console.log(get)
     })
   }
 }) 

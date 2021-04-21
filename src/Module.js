@@ -17,8 +17,10 @@ function bulkcreate(dbtable, data) {
     if (flag) {
       dbtable.bulkAdd([data]).then(() => {
                 console.log("Inserted Data Successfully");
+                error("Inserted Data Successfully")
               }).catch(Dexie.BulkError, (e) => {
                 console.error("Data wasn't added successfully");
+                error("Data wasn't added successfully")
               });
     } else {
       console.log("Please Provide Data...!");
@@ -78,10 +80,19 @@ const createEle = (tagname, appendTo, fn) => {
   if(fn)fn(element);
 }
 
+// error handler 
+function error(msg) {
+  const error = document.getElementById("error");
+
+  error.textContent = msg;
+  return error;
+}
+
 export default productdb;
 export {
   bulkcreate,
   getData,
   createEle
 };
+
 
